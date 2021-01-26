@@ -1,0 +1,33 @@
+
+1re étape avant de commencer l'ordonnancement, nous avons fait en sorte de vérfier que l'ordonnancement est possible.
+Pour ce faire, pour un graphe donné, nous avons établi les conditions nécessaires suivantes pour que un graphe soit ordonnançable:
+- Point d'entrée et de sorties uniques
+- Pas de circuit
+- Tout arc incident extérieur à un sommet a la même valeur
+- Tous les arcs partant du sommet initial ont un poids de 0
+- Pas d'arc avec un poids négatif
+
+Chaque fonction, retourne un booléen.
+Pour la première condition, on définit une fonction qui permet d'obtenir le point initial, dans le graphe a plusieurs points initiaux, on retourne la valeur NULL.
+Il en est de même pour la fonction qui permet d'obtenir le point final.
+
+Pour ce qui est du circuit, nous nous sommes basés sur la fonction utilisée pour établir les rangs, pour vérifier qu'un graphe ne contient pas de circuit.
+
+Pour la 3e condition, pour chaque sommet on stocke dans un tableau, le poids de ses arc incidents extérieurs. On stocke la première valeur dans une variable et on la compare aux autres.
+
+Pour la 4e condition, on utilise notre fonction qui permet de retourner le point initial pour pouvoir vérifier que tous les poids pour aller vers ses successeurs sont de 0.
+
+En ce qui concerne la dernière, on fait un parcours complet des poids des arcs du graphe et on retourne faux si l'une d'entre elle est inférieur à 0.
+
+Une fois que toutes ces conditions sont vérfiées, on peut calculer les dates au plus tôt et les dates au plus tard. Je vais vous parler des dates au plus tôt et mon collaborateur enchaînera sur les dates au plus tard.
+
+Avant de commencer, on a créé un nouveau tableau de sommets qui a les sommets classés selon leurs rangs.
+Tout d'abord, on a commencé par initialiser un tableau dans lequel on stocke les noms des sommets, les prédécesseurs, les poids de ses prédécesseurs, leurs dates au plus tôt (tableaux de taille le nombre de prédécesseurs) et la date au plus tôt du sommet en question.
+Ce tableau a été créé en tenant compte des rangs des différents sommets pour pouvoir avoir les prédecesseurs déjà traités pour pouvoir nous faciliter la tâche.
+Dans un premier temps, dans le premier passage de la boucle, on initialise le nom des sommets, ses prédécesseurs en utilisant le getter des prédecesseurs pour chaque sommet.
+De la même manière, on initialise les poids des prédecesseurs.
+Ensuite, pour le premier passage, nous avons décidé d'initialiser tout d'abord toutes les dates au plutôt à 0 supposant qu'on les calculera dans un deuxième temps. Pourquoi me direz vous ? Parce que c'est pour éviter d'accéder à des valeurs qui ne sont pas définie, et mon compilateur voulait que ça se fasse de cette manière.
+Ensuite, dans la 5e ligne du tableau, dans laquelle on stocke la date au plus tôt de chaque sommet, on stocke la valeur maximale des dates au plus tôt + le poids des prédecesseurs dans une variable et on le rentre dans une variable. Le maximum sera alors notre date au plus tôt.
+
+Dans un second temps, on recalcule la 3e ligne de notre tableau en accédant aux dates aux plus tôt de nos prédécesseurs et les stockant dans le tableau dans le même ordre dans lequel on met le nom des prédécesseurs dans le tableau. ça ne posera aucun problème car nos sommets prédécesseurs seront déjà traité grâce au rangement par le rang.
+Pour ce qui est de la date au plus tôt du sommet en lui même on utilise le même raisonnement que précédemment pour obtenir la valeur maximale du poids additionné à la date au plus tôt de chaque prédécesseur.

@@ -1,0 +1,388 @@
+Graphe 9 :
+* Lecture du graphe sur fichier
+10 sommets
+18 arcs
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 2 = 2
+1 -> 4 = 2
+1 -> 5 = 2
+2 -> 3 = 3
+2 -> 4 = 3
+2 -> 8 = 3
+3 -> 7 = 5
+3 -> 9 = 5
+4 -> 5 = 6
+4 -> 6 = 6
+4 -> 8 = 6
+5 -> 6 = 2
+5 -> 7 = 2
+6 -> 9 = 1
+7 -> 8 = 6
+8 -> 9 = 1
+* 
+ Représentation du graphe sous forme matricielle
+Matrice d'adjacence:
+
+    0   1   2   3   4   5   6   7   8   9   
+0   0   1   1   0   0   0   0   0   0   0   
+1   0   0   1   0   1   1   0   0   0   0   
+2   0   0   0   1   1   0   0   0   1   0   
+3   0   0   0   0   0   0   0   1   0   1   
+4   0   0   0   0   0   1   1   0   1   0   
+5   0   0   0   0   0   0   1   1   0   0   
+6   0   0   0   0   0   0   0   0   0   1   
+7   0   0   0   0   0   0   0   0   1   0   
+8   0   0   0   0   0   0   0   0   0   1   
+9   0   0   0   0   0   0   0   0   0   0   
+
+Matrice des valeurs:
+
+    0   1   2   3   4   5   6   7   8   9   
+0   *   0   0   *   *   *   *   *   *   *   
+1   *   *   2   *   2   2   *   *   *   *   
+2   *   *   *   3   3   *   *   *   3   *   
+3   *   *   *   *   *   *   *   5   *   5   
+4   *   *   *   *   *   6   6   *   6   *   
+5   *   *   *   *   *   *   2   2   *   *   
+6   *   *   *   *   *   *   *   *   *   1   
+7   *   *   *   *   *   *   *   *   6   *   
+8   *   *   *   *   *   *   *   *   *   1   
+9   *   *   *   *   *   *   *   *   *   *   
+
+
+*Détection de circuit 
+*Méthode d’élimination des points d’entrée 
+points entrées : [0]
+Suppression des points d’entrée
+points restants: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+points entrées : [1]
+Suppression des points d’entrée
+points restants: [2, 3, 4, 5, 6, 7, 8, 9]
+
+points entrées : [2]
+Suppression des points d’entrée
+points restants: [3, 4, 5, 6, 7, 8, 9]
+
+points entrées : [3, 4]
+Suppression des points d’entrée
+points restants: [5, 6, 7, 8, 9]
+
+points entrées : [5]
+Suppression des points d’entrée
+points restants: [6, 7, 8, 9]
+
+points entrées : [6, 7]
+Suppression des points d’entrée
+points restants: [8, 9]
+
+points entrées : [8]
+Suppression des points d’entrée
+points restants: [9]
+
+points entrées : [9]
+Suppression des points d’entrée
+points restants: []
+
+Pas de circuit dans le graphe !
+*Calcul des rangs 
+*Méthode d’élimination des points d’entrée
+rang : 1
+points entrées : [0]
+Suppression des points d’entrée
+points restants: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+rang : 2
+points entrées : [1]
+Suppression des points d’entrée
+points restants: [2, 3, 4, 5, 6, 7, 8, 9]
+
+rang : 3
+points entrées : [2]
+Suppression des points d’entrée
+points restants: [3, 4, 5, 6, 7, 8, 9]
+
+rang : 4
+points entrées : [3, 4]
+Suppression des points d’entrée
+points restants: [5, 6, 7, 8, 9]
+
+rang : 5
+points entrées : [5]
+Suppression des points d’entrée
+points restants: [6, 7, 8, 9]
+
+rang : 6
+points entrées : [6, 7]
+Suppression des points d’entrée
+points restants: [8, 9]
+
+rang : 7
+points entrées : [8]
+Suppression des points d’entrée
+points restants: [9]
+
+rang : 8
+points entrées : [9]
+Suppression des points d’entrée
+points restants: []
+
+Tableau de rangs :
+sommets :   0   1   2   3   4   5   6   7   8   9
+rang    :   1   2   3   4   4   5   6   6   7   8
+
+
+--------------------------------------------------------------------------------------
+                               ORDONNANCEMENT                 
+--------------------------------------------------------------------------------------
+(1) Points d'entrée et sortie uniques
+(2) Pas de circuit
+(3) Tout arc incident extérieur d'un sommet a la même valeur
+(4) Tous les arcs partant du sommet initial ont un poids de 0
+(5) Pas d'arc avec un poids négatif
+Ordonnancement possible !
+Initialisation de la table des dates au plus tôt :
+
+--------------------------------------------------------------------------------------
+                         DATE PLUS TÔT AFFICHAGE FINAL                 
+--------------------------------------------------------------------------------------
+
+*******************
+Nom du sommet : 0
+Rang du sommet : 1
+Liste des prédecesseurs : 
+Poids des prédecesseurs : 
+Dates des prédecesseurs : 
+Date au plus tôt de ce sommet : 0
+Sommets traités : [0]
+Sommets à traiter encore : [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+*******************
+Nom du sommet : 1
+Rang du sommet : 2
+Liste des prédecesseurs :  0 
+Poids des prédecesseurs :  0 
+Dates des prédecesseurs :  0 
+Date au plus tôt de ce sommet : 0
+Sommets traités : [0, 1]
+Sommets à traiter encore : [2, 3, 4, 5, 6, 7, 8, 9]
+
+*******************
+Nom du sommet : 2
+Rang du sommet : 3
+Liste des prédecesseurs :  0  1 
+Poids des prédecesseurs :  0  2 
+Dates des prédecesseurs :  0  0 
+Date au plus tôt de ce sommet : 2
+Sommets traités : [0, 1, 2]
+Sommets à traiter encore : [3, 4, 5, 6, 7, 8, 9]
+
+*******************
+Nom du sommet : 3
+Rang du sommet : 4
+Liste des prédecesseurs :  2 
+Poids des prédecesseurs :  3 
+Dates des prédecesseurs :  2 
+Date au plus tôt de ce sommet : 5
+Sommets traités : [0, 1, 2, 3]
+Sommets à traiter encore : [4, 5, 6, 7, 8, 9]
+
+*******************
+Nom du sommet : 4
+Rang du sommet : 4
+Liste des prédecesseurs :  1  2 
+Poids des prédecesseurs :  2  3 
+Dates des prédecesseurs :  0  2 
+Date au plus tôt de ce sommet : 5
+Sommets traités : [0, 1, 2, 3, 4]
+Sommets à traiter encore : [5, 6, 7, 8, 9]
+
+*******************
+Nom du sommet : 5
+Rang du sommet : 5
+Liste des prédecesseurs :  1  4 
+Poids des prédecesseurs :  2  6 
+Dates des prédecesseurs :  0  5 
+Date au plus tôt de ce sommet : 11
+Sommets traités : [0, 1, 2, 3, 4, 5]
+Sommets à traiter encore : [6, 7, 8, 9]
+
+*******************
+Nom du sommet : 6
+Rang du sommet : 6
+Liste des prédecesseurs :  4  5 
+Poids des prédecesseurs :  6  2 
+Dates des prédecesseurs :  5  11 
+Date au plus tôt de ce sommet : 13
+Sommets traités : [0, 1, 2, 3, 4, 5, 6]
+Sommets à traiter encore : [7, 8, 9]
+
+*******************
+Nom du sommet : 7
+Rang du sommet : 6
+Liste des prédecesseurs :  3  5 
+Poids des prédecesseurs :  5  2 
+Dates des prédecesseurs :  5  11 
+Date au plus tôt de ce sommet : 13
+Sommets traités : [0, 1, 2, 3, 4, 5, 6, 7]
+Sommets à traiter encore : [8, 9]
+
+*******************
+Nom du sommet : 8
+Rang du sommet : 7
+Liste des prédecesseurs :  2  4  7 
+Poids des prédecesseurs :  3  6  6 
+Dates des prédecesseurs :  2  5  13 
+Date au plus tôt de ce sommet : 19
+Sommets traités : [0, 1, 2, 3, 4, 5, 6, 7, 8]
+Sommets à traiter encore : [9]
+
+*******************
+Nom du sommet : 9
+Rang du sommet : 8
+Liste des prédecesseurs :  3  6  8 
+Poids des prédecesseurs :  5  1  1 
+Dates des prédecesseurs :  5  13  19 
+Date au plus tôt de ce sommet : 20
+Sommets traités : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Sommets à traiter encore : []
+
+Tableau final : 
+rangs               : 1   2   3   4   4   5   6   6   7   8   
+sommets             : 0   1   2   3   4   5   6   7   8   9   
+longueur            : 0   2   3   5   6   2   1   6   1   --  
+precedent plus tot  : --  0   1   2   2   4   5   5   7   8   
+dates plus tot      : 0   0   2   5   5   11  13  13  19  20  
+
+--------------------------------------------------------------------------------------
+                        FIN DATE PLUS TOT AFFICHAGE FINAL                 
+--------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------
+                         DATE PLUS TARD AFFICHAGE FINAL                 
+--------------------------------------------------------------------------------------
+
+*******************
+Nom du sommet : 9
+Rang du sommet : 8
+Liste des successeurs : 
+Poids des successeurs : 
+Dates des successeurs : 
+Date au plus tard de ce sommet : 20
+Sommets traités : [9]
+Sommets à traiter encore : [8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+*******************
+Nom du sommet : 8
+Rang du sommet : 7
+Liste des successeurs :  9 
+Poids des successeurs :  1 
+Dates des successeurs :  20 
+Date au plus tard de ce sommet : 19
+Sommets traités : [9, 8]
+Sommets à traiter encore : [7, 6, 5, 4, 3, 2, 1, 0]
+
+*******************
+Nom du sommet : 7
+Rang du sommet : 6
+Liste des successeurs :  8 
+Poids des successeurs :  6 
+Dates des successeurs :  19 
+Date au plus tard de ce sommet : 13
+Sommets traités : [9, 8, 7]
+Sommets à traiter encore : [6, 5, 4, 3, 2, 1, 0]
+
+*******************
+Nom du sommet : 6
+Rang du sommet : 6
+Liste des successeurs :  9 
+Poids des successeurs :  1 
+Dates des successeurs :  20 
+Date au plus tard de ce sommet : 19
+Sommets traités : [9, 8, 7, 6]
+Sommets à traiter encore : [5, 4, 3, 2, 1, 0]
+
+*******************
+Nom du sommet : 5
+Rang du sommet : 5
+Liste des successeurs :  6  7 
+Poids des successeurs :  2  2 
+Dates des successeurs :  19  13 
+Date au plus tard de ce sommet : 11
+Sommets traités : [9, 8, 7, 6, 5]
+Sommets à traiter encore : [4, 3, 2, 1, 0]
+
+*******************
+Nom du sommet : 4
+Rang du sommet : 4
+Liste des successeurs :  5  6  8 
+Poids des successeurs :  6  6  6 
+Dates des successeurs :  11  19  19 
+Date au plus tard de ce sommet : 5
+Sommets traités : [9, 8, 7, 6, 5, 4]
+Sommets à traiter encore : [3, 2, 1, 0]
+
+*******************
+Nom du sommet : 3
+Rang du sommet : 4
+Liste des successeurs :  7  9 
+Poids des successeurs :  5  5 
+Dates des successeurs :  13  20 
+Date au plus tard de ce sommet : 8
+Sommets traités : [9, 8, 7, 6, 5, 4, 3]
+Sommets à traiter encore : [2, 1, 0]
+
+*******************
+Nom du sommet : 2
+Rang du sommet : 3
+Liste des successeurs :  3  4  8 
+Poids des successeurs :  3  3  3 
+Dates des successeurs :  8  5  19 
+Date au plus tard de ce sommet : 2
+Sommets traités : [9, 8, 7, 6, 5, 4, 3, 2]
+Sommets à traiter encore : [1, 0]
+
+*******************
+Nom du sommet : 1
+Rang du sommet : 2
+Liste des successeurs :  2  4  5 
+Poids des successeurs :  2  2  2 
+Dates des successeurs :  2  5  11 
+Date au plus tard de ce sommet : 0
+Sommets traités : [9, 8, 7, 6, 5, 4, 3, 2, 1]
+Sommets à traiter encore : [0]
+
+*******************
+Nom du sommet : 0
+Rang du sommet : 1
+Liste des successeurs :  1  2 
+Poids des successeurs :  0  0 
+Dates des successeurs :  0  2 
+Date au plus tard de ce sommet : 0
+Sommets traités : [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+Sommets à traiter encore : []
+
+ Tableau final : 
+rangs               : 8   7   6   6   5   4   4   3   2   1   
+sommets             : 9   8   7   6   5   4   3   2   1   0   
+longueur            : --  1   6   1   2   6   5   3   2   0   
+successeur          : --  9   8   9   7   5   7   4   2   1   
+dates plus trad     : 20  19  13  19  11  5   8   2   0   0   
+
+--------------------------------------------------------------------------------------
+                        FIN DATE PLUS TARD AFFICHAGE FINAL                 
+--------------------------------------------------------------------------------------
+
+Tableau final avec marge: 
+Rang              : 1  2  3  4  4  5  6  6  7  8  
+Sommet            : 0  1  2  3  4  5  6  7  8  9  
+Date au plus tot  : 0  0  2  5  5  11 13 13 19 20 
+Date au plus tard : 0  0  2  8  5  11 19 13 19 20 
+Marge total       : 0  0  0  3  0  0  6  0  0  0  
+Marge libre       : 0  0  0  3  0  0  6  0  0  0  
+
+
+--------------------------------------------------------------------------------------
+                              FIN ORDONNANCEMENT                 
+--------------------------------------------------------------------------------------

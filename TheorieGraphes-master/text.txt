@@ -1,0 +1,78 @@
+import java.io.*;
+import java.util.ArrayList;
+
+public class WRFile 
+{
+
+		private File file;
+		public int sommet =-1 ; 
+		public int arc = -1 ; 
+		
+	    public WRFile  (File file ) throws IOException
+	    {
+	        this.file = file;
+	        initialisation () ; 
+	    }
+
+	    public void initialisation() throws IOException
+	    {
+	       	BufferedReader read = new BufferedReader (new FileReader("test.txt"));
+	    	String ligne;
+	    	String [] mot;
+	    	int compteur = 1; 
+	    	while ( (ligne = read.readLine ())!= null && compteur < 3 ){
+	    	     mot = ligne.split (" ");
+	    	     if (compteur == 1 )
+	    	     {
+	    	    	 this.sommet = Integer.parseInt(mot[0]);
+	  
+	    	     }
+	    	     else if (compteur == 2)
+	    	     {
+	    	    	 this.arc = Integer.parseInt(mot[0]);
+	    	     }
+	    	     compteur ++;  
+	    	}
+	    }
+	    
+	    public void sommet() throws IOException
+	    {
+	     	BufferedReader read = new BufferedReader (new FileReader("test.txt"));
+		    String ligne;
+		    String [] mot;
+		    ligne = read.readLine ();
+		    ligne = read.readLine ();
+		    while ( (ligne = read.readLine ())!= null )
+		    {
+		    	mot = ligne.split (" ");
+		    	
+		    	System.out.println ("sommet source : " + Integer.parseInt(mot[0]) + " sommet cible : " + Integer.parseInt(mot[1]) + " poids : " + Integer.parseInt(mot[2]) );
+		    	 
+		    }
+	    }
+	    
+	    public void readFIS() throws IOException
+	    {
+	        FileInputStream fis = new FileInputStream(this.file);
+	        int val = fis.read (); 
+	        while (val != -1)
+	        {
+	        	System.out.println ((char) val);
+	            val =fis.read();
+	           
+	        }
+	        fis.close();
+	    }
+	
+	    
+	    public static void main(String[] args) throws IOException {
+	    	WRFile read = new WRFile (new File("test.txt"));
+	    	
+	    	System.out.println ("Sommets : " + read.sommet);
+	    	System.out.println ("Arcs : "+ read.arc);
+	    	read.sommet (); 
+	    	
+	    	
+	    }
+
+}
